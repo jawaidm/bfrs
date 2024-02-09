@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_filters',
     'bfrs',
+    'appmonitor_client',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,6 +75,11 @@ TEMPLATES = [
         },
     },
 ]
+
+CRON_CLASSES = [
+    'appmonitor_client.cron.CronJobAppMonitorClient',
+]
+
 LATEX_GRAPHIC_FOLDER = os.path.join(BASE_DIR, "templates", "latex", "images")
 P1CAD_ENDPOINT = env('P1CAD_ENDPOINT', None)
 P1CAD_USER = env('P1CAD_USER', None)

@@ -1241,6 +1241,7 @@ class DocumentViewForm(baseforms.ModelForm):
 class DocumentUpdateForm(DocumentViewForm):
     def clean_custom_tag(self):
         try:
+            print('clean_custom_tag 0: {}'.format(self.cleaned_data))
             if DocumentTag.check_other_tag(self.cleaned_data["tag"]):
                 value = self.cleaned_data.get("custom_tag")
                 if value:
